@@ -8,7 +8,7 @@ public class PullLever : MonoBehaviour
 
     [SerializeField] private float spinCooldown;
 
-    private int[] _reelSlotsRandomNumbers = new int[3];
+    private readonly int[] _reelSlotsRandomNumbers = new int[3];
 
     private Animator _animation;
 
@@ -33,21 +33,29 @@ public class PullLever : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Spin();
+        if (_timeSinceLastPull <= spinCooldown) return;
+
+        StartCoroutine(StartSpin());
     }
 
     private void Spin()
     {
-        if (_timeSinceLastPull <= spinCooldown) return;
-
-        _animation.Play(PullLeverAnimatorString);
-
         for (var i = 0; i < _reelSlotsRandomNumbers.Length; i++)
         {
             _reelSlotsRandomNumbers[i] = Random.Range(0, 10);
         }
 
         outputText.text = string.Join("", _reelSlotsRandomNumbers);
+    }
+
+    private IEnumerator StartSpin()
+    {
         _timeSinceLastPull = 0f;
+
+        _animation.Play(PullLeverAnimatorString);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Spin();
     }
 }
