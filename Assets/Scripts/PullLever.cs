@@ -1,14 +1,13 @@
 using UnityEngine;
 using System.Collections;
-using TMPro;
+using UnityEngine.UI;
 
 public class PullLever : MonoBehaviour
 {
-    [SerializeField] private TMP_Text outputText;
+    [SerializeField] private Sprite[] fruitSprites;
+    [SerializeField] private Image[] reelSlotFruits;
 
     [SerializeField] private float spinCooldown;
-
-    private readonly int[] _reelSlotsRandomNumbers = new int[3];
 
     private Animator _animation;
 
@@ -40,12 +39,12 @@ public class PullLever : MonoBehaviour
 
     private void Spin()
     {
-        for (var i = 0; i < _reelSlotsRandomNumbers.Length; i++)
+        foreach (Image fruit in reelSlotFruits)
         {
-            _reelSlotsRandomNumbers[i] = Random.Range(0, 10);
-        }
+            Sprite randomFruit = fruitSprites[Random.Range(0, fruitSprites.Length)];
 
-        outputText.text = string.Join("", _reelSlotsRandomNumbers);
+            fruit.sprite = randomFruit;
+        }
     }
 
     private IEnumerator StartSpin()
