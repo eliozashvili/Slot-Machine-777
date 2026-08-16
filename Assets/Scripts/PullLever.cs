@@ -1,10 +1,30 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 public class PullLever : MonoBehaviour
 {
+    public enum Fruits
+    {
+        Seven,
+        Banana,
+        Orange,
+        Strawberry
+    }
+    [System.Serializable]
+    public struct FruitsMultiplier
+    {
+        public Fruits fruit;
+        public int multiplier;
+    }
+    [Header("Gameplay options\n"), Space(1f)]
+    [SerializeField] private FruitsMultiplier[] fruitsMultiplier;
+    [SerializeField] private int depositAmount;
+    [SerializeField] private int betAmount;
+    [Header("Spin options\n"), Space(1f)]
+    [SerializeField] private float spinDuration;
+    [SerializeField] private float startSlotSpinSpeed;
+    [SerializeField] private float endSlotSpinSpeed;
     [Header("Fruit models and slots\n"), Space(1f)]
     [SerializeField] private Sprite[] fruitSprites;
     [SerializeField] private Image[] reelSlotFruits;
@@ -13,16 +33,13 @@ public class PullLever : MonoBehaviour
     [SerializeField] private Vector2 fruitScaleWhileSpin;
     [SerializeField] private float defaultAlpha;
     [SerializeField] private float fruitAlphaWhileSpin;
-    [Header("Spin options\n"), Space(1f)]
-    [SerializeField] private float spinDuration;
-    [SerializeField] private float startSlotSpinSpeed;
-    [SerializeField] private float endSlotSpinSpeed;
 
     private Animator _animation;
 
-    private const string PullLeverAnimatorString = "Pull Lever";
-
     private float _timeSinceLastPull;
+    private int _totalAmount;
+
+    private const string PullLeverAnimatorString = "Pull Lever";
 
     private void Awake()
     {
@@ -32,6 +49,7 @@ public class PullLever : MonoBehaviour
     private void Start()
     {
         _timeSinceLastPull = spinDuration;
+        _totalAmount = depositAmount;
     }
 
     private void Update()
@@ -48,12 +66,66 @@ public class PullLever : MonoBehaviour
 
     private void Spin()
     {
-        foreach (Image fruit in reelSlotFruits)
+        var fruitNames = new Fruits[reelSlotFruits.Length];
+
+        for (var i = 0; i < reelSlotFruits.Length; i++)
         {
             Sprite randomFruit = fruitSprites[Random.Range(0, fruitSprites.Length)];
 
-            fruit.sprite = randomFruit;
+            reelSlotFruits[i].sprite = randomFruit;
+
+            fruitNames[i] = System.Enum.Parse<Fruits>(reelSlotFruits[i].sprite.name);
         }
+
+        Payout(fruitNames);
+    }
+
+    private void Payout(Fruits[] fruitNames)
+    {
+        var isWin = true;
+
+        // ReSharper disable once LoopCanBeConvertedToQuery
+        foreach (Fruits fruitName in fruitNames)
+        {
+            if (fruitName == fruitNames[0]) continue;
+
+            isWin = false;
+            break;
+        }
+
+        if (isWin)
+        {
+            CalculatePayout(fruitNames[0]);
+        }
+        else
+        {
+            _totalAmount -= betAmount;
+            // TODO on lose action
+            if (_totalAmount == 0)
+            {
+                Debug.Log("You Lost");
+            }
+        }
+
+        Debug.Log(_totalAmount);
+    }
+
+    private void CalculatePayout(Fruits fruitName)
+    {
+        int multiplier = GetMultiplier(fruitName);
+
+        _totalAmount += betAmount * multiplier;
+    }
+
+    private int GetMultiplier(Fruits fruit)
+    {
+        foreach (FruitsMultiplier fruitMultiplier in fruitsMultiplier)
+        {
+            if (fruitMultiplier.fruit == fruit)
+                return fruitMultiplier.multiplier;
+        }
+
+        return 1;
     }
 
     private IEnumerator StartSpin()
@@ -61,6 +133,8 @@ public class PullLever : MonoBehaviour
         _timeSinceLastPull = 0f;
 
         _animation.Play(PullLeverAnimatorString);
+
+        ChangeFruitsVisuals(fruitScaleWhileSpin, fruitAlphaWhileSpin);
 
         while (_timeSinceLastPull < spinDuration)
         {
@@ -70,8 +144,6 @@ public class PullLever : MonoBehaviour
             foreach (Image fruit in reelSlotFruits)
             {
                 Sprite randomFruit = fruitSprites[Random.Range(0, fruitSprites.Length)];
-
-                ChangeFruitsVisuals(fruitScaleWhileSpin, fruitAlphaWhileSpin);
 
                 fruit.sprite = randomFruit;
             }
