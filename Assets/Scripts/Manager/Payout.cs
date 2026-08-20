@@ -9,7 +9,7 @@ public class Payout : MonoBehaviour
 
     private void Start()
     {
-        _totalAmount = monitorSO.depositAmount;
+        _totalAmount = monitorSO.DepositAmount;
     }
 
     public void ResultPayout(LeverSO.Fruits[] fruitNames)
@@ -31,7 +31,7 @@ public class Payout : MonoBehaviour
         }
         else
         {
-            _totalAmount -= monitorSO.betAmount;
+            _totalAmount -= monitorSO.BetAmount;
             // TODO on lose action
             if (_totalAmount == 0)
             {
@@ -46,6 +46,6 @@ public class Payout : MonoBehaviour
     {
         int multiplier = leverSO.GetMultiplier(fruitName);
 
-        _totalAmount += monitorSO.betAmount * multiplier;
+        _totalAmount += monitorSO.BetAmount * multiplier;
     }
 }

@@ -14,27 +14,27 @@ public class LeverSO : ScriptableObject
     [System.Serializable]
     public struct FruitsMultiplier
     {
-        public Fruits fruit;
-        public int multiplier;
+        public Fruits Fruit;
+        public int Multiplier;
     }
 
     [System.Serializable]
     public struct FruitsData
     {
-        public Fruits fruit;
-        public Sprite sprite;
+        public Fruits Fruit;
+        public Sprite Sprite;
     }
 
     [Header("Fruits and multipliers\n"), Space(1f)]
-    public FruitsMultiplier[] fruitsMultiplier;
-    public FruitsData[] fruitData;
+    public FruitsMultiplier[] FruitMultiplier;
+    public FruitsData[] FruitData;
 
     public int GetMultiplier(Fruits fruit)
     {
-        foreach (FruitsMultiplier fruitMultiplier in fruitsMultiplier)
+        foreach (FruitsMultiplier fruitMultiplier in FruitMultiplier)
         {
-            if (fruitMultiplier.fruit == fruit)
-                return fruitMultiplier.multiplier;
+            if (fruitMultiplier.Fruit == fruit)
+                return fruitMultiplier.Multiplier;
         }
 
         return 1;
@@ -42,13 +42,13 @@ public class LeverSO : ScriptableObject
 
     public FruitsData GetRandomFruit()
     {
-        int randomFruitIndex = Random.Range(0, fruitData.Length);
+        int randomFruitIndex = Random.Range(0, FruitData.Length);
 
-        return fruitData[randomFruitIndex];
+        return FruitData[randomFruitIndex];
     }
 
     [Header("Spin options\n"), Space(1f)]
-    public float spinDuration;
-    public float startSlotSpinSpeed;
-    public float endSlotSpinSpeed;
+    public float SpinDuration;
+    public float StartSlotSpinSpeed;
+    public float EndSlotSpinSpeed;
 }

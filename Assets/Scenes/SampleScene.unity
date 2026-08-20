@@ -246,6 +246,11 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &455167200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1888330485252518163, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+  m_PrefabInstance: {fileID: 1807735555740024186}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &515451139
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +863,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &989653957 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3728734745793778041, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+  m_PrefabInstance: {fileID: 1807735555740024186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1034746968 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9005220659476430823, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
@@ -1187,11 +1203,33 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1034746970}
   m_SourcePrefab: {fileID: 100100000, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+--- !u!114 &1490021056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9103312897368558487, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+  m_PrefabInstance: {fileID: 1807735555740024186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!4 &1542010542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
   m_PrefabInstance: {fileID: 7850180442216030194}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1612580041 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1864819215504920534, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+  m_PrefabInstance: {fileID: 1807735555740024186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1777496571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,6 +1481,10 @@ PrefabInstance:
       propertyPath: gameOptionsSO
       value: 
       objectReference: {fileID: 11400000, guid: 695af02de9caf6e45a0e1b728d087963, type: 2}
+    - target: {fileID: 2289467658819952524, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+      propertyPath: monitorInformation
+      value: 
+      objectReference: {fileID: 1807735555740024188}
     - target: {fileID: 2289467658819952524, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: fruitSprites.Array.size
       value: 25
@@ -1697,13 +1739,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7054143166662194010, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1777496572}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1888330485252518163, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1807735555740024188}
   m_SourcePrefab: {fileID: 100100000, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
 --- !u!4 &1807735555740024187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7054143166662194010, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
   m_PrefabInstance: {fileID: 1807735555740024186}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1807735555740024188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455167200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0510dbfdb9956174abf93a7735471c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonitorInformation
+  leverSO: {fileID: 11400000, guid: 695af02de9caf6e45a0e1b728d087963, type: 2}
+  monitorSO: {fileID: 11400000, guid: 3117cebff98456041a8a6d7736fba61c, type: 2}
+  reelSlotFruits:
+  - {fileID: 1490021056}
+  - {fileID: 1612580041}
+  - {fileID: 989653957}
 --- !u!1001 &2549926917513031340
 PrefabInstance:
   m_ObjectHideFlags: 0

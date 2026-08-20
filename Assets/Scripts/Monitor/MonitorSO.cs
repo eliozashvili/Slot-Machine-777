@@ -5,14 +5,14 @@ using UnityEngine.UI;
 public class MonitorSO : ScriptableObject
 {
     [Header("Player information\n"), Space(1f)]
-    public int depositAmount;
-    public int betAmount;
+    public int DepositAmount;
+    public int BetAmount;
 
     [Header("Fruit visuals on default and while spin\n"), Space(1f)]
-    public Vector2 defaultFruitScale;
-    public Vector2 fruitScaleWhileSpin;
-    public float defaultAlpha;
-    public float fruitAlphaWhileSpin;
+    public Vector2 DefaultFruitScale;
+    public Vector2 FruitScaleWhileSpin;
+    public float DefaultAlpha;
+    public float FruitAlphaWhileSpin;
 
     public void ChangeFruitsVisuals(Vector2 scale, float alpha, Image[] reelSlotFruits)
     {

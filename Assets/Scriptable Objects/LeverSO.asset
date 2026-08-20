@@ -30,6 +30,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: c0a045399c0ea294fafff548374c0cae, type: 3}
   - fruit: 3
     sprite: {fileID: 21300000, guid: d7859e6b59262ca418dbb564eed15ebf, type: 3}
-  spinDuration: 2
-  startSlotSpinSpeed: 0.05
-  endSlotSpinSpeed: 0.1
+  SpinDuration: 2
+  StartSlotSpinSpeed: 0.075
+  EndSlotSpinSpeed: 0.1
