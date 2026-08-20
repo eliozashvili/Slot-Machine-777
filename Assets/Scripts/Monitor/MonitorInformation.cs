@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -9,8 +10,14 @@ public class MonitorInformation : MonoBehaviour
     
     [SerializeField] private GameOptionsSO gameOptionsSO;
     [SerializeField] private MonitorSO monitorSO;
+    [SerializeField] private TMP_Text totalAmountText;
 
     [SerializeField] private Image[] reelSlotFruits;
+
+    public void ShowTotalAmount(int amount)
+    {
+        totalAmountText.text = $"Total: {amount}";
+    }
 
     public void SpinReels()
     {

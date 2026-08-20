@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Payout : MonoBehaviour
 {
+    [SerializeField] private UnityEvent<int> onTotalAmountChanged;
+    
     [SerializeField] private GameOptionsSO gameOptionsSO;
     [SerializeField] private MonitorSO monitorSO;
 
@@ -39,6 +42,7 @@ public class Payout : MonoBehaviour
             }
         }
 
+        onTotalAmountChanged.Invoke(_totalAmount);
         Debug.Log(_totalAmount);
     }
 

@@ -544,31 +544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a0241283b1f8646b0dcf41fa9e090d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotsMachine
-  fruitsMultiplier: []
-  depositAmount: 0
-  betAmount: 0
-  spinDuration: 2
-  startSlotSpinSpeed: 0.01
-  endSlotSpinSpeed: 0.1
-  fruitSprites:
-  - {fileID: 21300000, guid: 0e9cf4595b2a3c74581d88f0cc801573, type: 3}
-  - {fileID: 21300000, guid: 66145cc3192621e42a7e70eea018a698, type: 3}
-  - {fileID: 21300000, guid: 66145cc3192621e42a7e70eea018a698, type: 3}
-  - {fileID: 21300000, guid: c0a045399c0ea294fafff548374c0cae, type: 3}
-  - {fileID: 21300000, guid: c0a045399c0ea294fafff548374c0cae, type: 3}
-  - {fileID: 21300000, guid: c0a045399c0ea294fafff548374c0cae, type: 3}
-  - {fileID: 21300000, guid: d7859e6b59262ca418dbb564eed15ebf, type: 3}
-  - {fileID: 21300000, guid: d7859e6b59262ca418dbb564eed15ebf, type: 3}
-  - {fileID: 21300000, guid: d7859e6b59262ca418dbb564eed15ebf, type: 3}
-  - {fileID: 21300000, guid: d7859e6b59262ca418dbb564eed15ebf, type: 3}
-  reelSlotFruits:
-  - {fileID: 9103312897368558487}
-  - {fileID: 1864819215504920534}
-  - {fileID: 3728734745793778041}
-  defaultFruitScale: {x: 0.85, y: 0.85}
-  fruitScaleWhileSpin: {x: 0.65, y: 0.65}
-  defaultAlpha: 1
-  fruitAlphaWhileSpin: 0.75
+  gameOptionsSO: {fileID: 0}
+  monitorInformation: {fileID: 0}
 --- !u!1 &5894778228307033377
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,8 +576,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2065533195930546623}
   - {fileID: 919281025663911537}
+  - {fileID: 2065533195930546623}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4218081681238121731
