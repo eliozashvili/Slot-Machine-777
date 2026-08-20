@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameOptions", menuName = "Scriptable Objects/GameOptions")]
-public class LeverSO : ScriptableObject
+public class GameOptionsSO : ScriptableObject
 {
     public enum Fruits
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Payout : MonoBehaviour
 {
-    [SerializeField] private LeverSO leverSO;
+    [SerializeField] private GameOptionsSO gameOptionsSO;
     [SerializeField] private MonitorSO monitorSO;
 
     private int _totalAmount;
@@ -12,12 +12,12 @@ public class Payout : MonoBehaviour
         _totalAmount = monitorSO.DepositAmount;
     }
 
-    public void ResultPayout(LeverSO.Fruits[] fruitNames)
+    public void ResultPayout(GameOptionsSO.Fruits[] fruitNames)
     {
         var isWin = true;
 
         // ReSharper disable once LoopCanBeConvertedToQuery
-        foreach (LeverSO.Fruits fruitName in fruitNames)
+        foreach (GameOptionsSO.Fruits fruitName in fruitNames)
         {
             if (fruitName == fruitNames[0]) continue;
 
@@ -42,9 +42,9 @@ public class Payout : MonoBehaviour
         Debug.Log(_totalAmount);
     }
 
-    private void CalculatePayout(LeverSO.Fruits fruitName)
+    private void CalculatePayout(GameOptionsSO.Fruits fruitName)
     {
-        int multiplier = leverSO.GetMultiplier(fruitName);
+        int multiplier = gameOptionsSO.GetMultiplier(fruitName);
 
         _totalAmount += monitorSO.BetAmount * multiplier;
     }

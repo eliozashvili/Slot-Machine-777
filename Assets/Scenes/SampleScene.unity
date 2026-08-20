@@ -1761,6 +1761,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0510dbfdb9956174abf93a7735471c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonitorInformation
+  onSpinCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2122276032}
+        m_TargetAssemblyTypeName: Payout, Assembly-CSharp
+        m_MethodName: ResultPayout
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   leverSO: {fileID: 11400000, guid: 695af02de9caf6e45a0e1b728d087963, type: 2}
   monitorSO: {fileID: 11400000, guid: 3117cebff98456041a8a6d7736fba61c, type: 2}
   reelSlotFruits:

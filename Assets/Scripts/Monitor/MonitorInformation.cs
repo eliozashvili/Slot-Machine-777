@@ -1,20 +1,16 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MonitorInformation : MonoBehaviour
 {
-    [SerializeField] private LeverSO leverSO;
+    [SerializeField] private UnityEvent<GameOptionsSO.Fruits[]> onSpinCompleted;
+    
+    [SerializeField] private GameOptionsSO gameOptionsSO;
     [SerializeField] private MonitorSO monitorSO;
 
     [SerializeField] private Image[] reelSlotFruits;
-
-    private Payout _payout;
-
-    private void Start()
-    {
-        _payout = FindAnyObjectByType<Payout>();
-    }
 
     public void SpinReels()
     {
@@ -27,15 +23,15 @@ public class MonitorInformation : MonoBehaviour
 
         monitorSO.ChangeFruitsVisuals(monitorSO.FruitScaleWhileSpin, monitorSO.FruitAlphaWhileSpin, reelSlotFruits);
 
-        while (elapsedTime < leverSO.SpinDuration)
+        while (elapsedTime < gameOptionsSO.SpinDuration)
         {
-            float progress = elapsedTime / leverSO.SpinDuration;
-            float reelSpinSpeedBeforeResult = Mathf.Lerp(leverSO.StartSlotSpinSpeed, leverSO.EndSlotSpinSpeed, progress);
+            float progress = elapsedTime / gameOptionsSO.SpinDuration;
+            float reelSpinSpeedBeforeResult = Mathf.Lerp(gameOptionsSO.StartSlotSpinSpeed, gameOptionsSO.EndSlotSpinSpeed, progress);
 
             // ReSharper disable once ForCanBeConvertedToForeach
             for (var i = 0; i < reelSlotFruits.Length; i++)
             {
-                reelSlotFruits[i].sprite = leverSO.GetRandomFruit().Sprite;
+                reelSlotFruits[i].sprite = gameOptionsSO.GetRandomFruit().Sprite;
             }
 
             yield return new WaitForSeconds(reelSpinSpeedBeforeResult);
@@ -49,17 +45,17 @@ public class MonitorInformation : MonoBehaviour
 
     private void Spin()
     {
-        var fruitNames = new LeverSO.Fruits [reelSlotFruits.Length];
+        var fruitNames = new GameOptionsSO.Fruits [reelSlotFruits.Length];
 
         for (var i = 0; i < reelSlotFruits.Length; i++)
         {
-            LeverSO.FruitsData randomFruitData = leverSO.GetRandomFruit();
+            GameOptionsSO.FruitsData randomFruitData = gameOptionsSO.GetRandomFruit();
 
             reelSlotFruits[i].sprite = randomFruitData.Sprite;
 
             fruitNames[i] = randomFruitData.Fruit;
         }
 
-        _payout.ResultPayout(fruitNames);
+        onSpinCompleted.Invoke(fruitNames);
     }
 }

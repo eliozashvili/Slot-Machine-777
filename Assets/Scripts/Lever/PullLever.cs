@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PullLever : MonoBehaviour
 {
-    [SerializeField] private LeverSO leverSO;
+    [SerializeField] private GameOptionsSO gameOptionsSO;
     [SerializeField] private MonitorInformation monitorInformation;
 
     private Animator _animator;
@@ -18,7 +18,7 @@ public class PullLever : MonoBehaviour
 
     private void Start()
     {
-        _timeSinceLastPull = leverSO.SpinDuration;
+        _timeSinceLastPull = gameOptionsSO.SpinDuration;
     }
 
     private void Update()
@@ -33,7 +33,7 @@ public class PullLever : MonoBehaviour
 
     private void HandleSpinStart()
     {
-        if (_timeSinceLastPull <= leverSO.SpinDuration) return;
+        if (_timeSinceLastPull <= gameOptionsSO.SpinDuration) return;
 
         _timeSinceLastPull = 0f;
         _animator.Play(PullLeverAnimatorString);
