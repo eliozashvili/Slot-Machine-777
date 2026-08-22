@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class MonitorSO : ScriptableObject
 {
     [Header("Player information\n"), Space(1f)]
-    public int DepositAmount;
     public int BetAmount;
 
     [Header("Fruit visuals on default and while spin\n"), Space(1f)]

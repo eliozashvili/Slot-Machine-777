@@ -9,10 +9,21 @@ public class Payout : MonoBehaviour
     [SerializeField] private MonitorSO monitorSO;
 
     private int _totalAmount;
-
-    private void Start()
+    public int TotalAmount
     {
-        _totalAmount = monitorSO.DepositAmount;
+        get { return _totalAmount; }
+        
+        private set
+        {
+            _totalAmount = value;
+            onTotalAmountChanged.Invoke(_totalAmount);
+        }
+    }
+
+    public void PlayerDepositStringToInt(string depositAmountString)
+    {
+        if (int.TryParse(depositAmountString, out int deposit))
+            TotalAmount += deposit;
     }
 
     public void ResultPayout(GameOptionsSO.Fruits[] fruitNames)
@@ -34,22 +45,16 @@ public class Payout : MonoBehaviour
         }
         else
         {
-            _totalAmount -= monitorSO.BetAmount;
+            TotalAmount -= monitorSO.BetAmount;
             // TODO on lose action
-            if (_totalAmount == 0)
-            {
-                Debug.Log("You Lost");
-            }
+            if (TotalAmount <= 0) TotalAmount = 0;
         }
-
-        onTotalAmountChanged.Invoke(_totalAmount);
-        Debug.Log(_totalAmount);
     }
 
     private void CalculatePayout(GameOptionsSO.Fruits fruitName)
     {
         int multiplier = gameOptionsSO.GetMultiplier(fruitName);
 
-        _totalAmount += monitorSO.BetAmount * multiplier;
+        TotalAmount += monitorSO.BetAmount * multiplier;
     }
 }
