@@ -1217,8 +1217,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -1835,17 +1835,17 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_RegexValue: 
   m_GlobalPointSize: 14
-  m_CharacterLimit: 0
+  m_CharacterLimit: 4
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -2224,8 +2224,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 0e9cf4595b2a3c74581d88f0cc801573, type: 3}
     - target: {fileID: 4218081681238121731, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8681162
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218081681238121731, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218081681238121731, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+      propertyPath: m_Center.x
+      value: -0.0659419
       objectReference: {fileID: 0}
     - target: {fileID: 4332633446529572921, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2320,7 +2328,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1888330485252518163, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1807735555740024193}
+    - targetCorrespondingSourceObject: {fileID: 1888330485252518163, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1807735555740024188}
+    - targetCorrespondingSourceObject: {fileID: 1888330485252518163, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1807735555740024190}
   m_SourcePrefab: {fileID: 100100000, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
 --- !u!4 &1807735555740024187 stripped
 Transform:
@@ -2356,11 +2370,46 @@ MonoBehaviour:
         m_CallState: 2
   gameOptionsSO: {fileID: 11400000, guid: 695af02de9caf6e45a0e1b728d087963, type: 2}
   monitorSO: {fileID: 11400000, guid: 3117cebff98456041a8a6d7736fba61c, type: 2}
-  totalAmountText: {fileID: 0}
+  totalAmountText: {fileID: 756715776}
   reelSlotFruits:
   - {fileID: 1490021056}
   - {fileID: 1612580041}
   - {fileID: 989653957}
+--- !u!114 &1807735555740024190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455167200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2c8369d04687046a15759045949ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DepositInputFieldInteract
+  inputField: {fileID: 2071812335}
+  playerInput: {fileID: 2549926917513031345}
+--- !u!65 &1807735555740024193
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455167200}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.8573772, z: 1}
+  m_Center: {x: 0, y: -0.4286886, z: 0}
 --- !u!1001 &2549926917513031340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2369,6 +2418,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 446899556953952261, guid: 98f9e98368fc61f4aba5852f2a622417, type: 3}
+      propertyPath: jump
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 446899556953952261, guid: 98f9e98368fc61f4aba5852f2a622417, type: 3}
       propertyPath: cursorLocked
       value: 1
@@ -2420,8 +2473,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2200014200025462702, guid: 98f9e98368fc61f4aba5852f2a622417, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2549926917513031344}
   m_SourcePrefab: {fileID: 100100000, guid: 98f9e98368fc61f4aba5852f2a622417, type: 3}
+--- !u!1 &2549926917513031343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2200014200025462702, guid: 98f9e98368fc61f4aba5852f2a622417, type: 3}
+  m_PrefabInstance: {fileID: 2549926917513031340}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2549926917513031344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549926917513031343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b32d814accb6f8498797835b5485252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactor
+  interactRange: 5
+--- !u!114 &2549926917513031345 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1548048505802703619, guid: 98f9e98368fc61f4aba5852f2a622417, type: 3}
+  m_PrefabInstance: {fileID: 2549926917513031340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549926917513031343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4135013735463032161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 410721119144222400, guid: 98f9e98368fc61f4aba5852f2a622417, type: 3}
