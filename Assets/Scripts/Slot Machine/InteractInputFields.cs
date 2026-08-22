@@ -2,21 +2,20 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.Events;
 
-public class DepositInputFieldInteract : MonoBehaviour, IInteractable
+public class InteractInputFields : MonoBehaviour, IInteractable
 {
+    [SerializeField] private UnityEvent<string> onPlayerInput;
+    
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private PlayerInput playerInput;
-
-    private Payout _payout;
 
     private void Start()
     {
         if (!inputField) return;
         
         inputField.onSubmit.AddListener(OnSubmitEnterPress);
-
-        _payout = FindAnyObjectByType<Payout>();
     }
 
     public void Interact()
@@ -24,9 +23,9 @@ public class DepositInputFieldInteract : MonoBehaviour, IInteractable
         InputFieldInteractable();
     }
 
-    private void OnSubmitEnterPress(string depositAmountString)
+    private void OnSubmitEnterPress(string input)
     {
-        _payout.PlayerDepositStringToInt(depositAmountString);
+        onPlayerInput.Invoke(input);
         
         InputFieldNotInteractable();
     }

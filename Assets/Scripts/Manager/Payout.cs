@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Payout : MonoBehaviour
+public class Payment : MonoBehaviour
 {
     [SerializeField] private UnityEvent<int> onTotalAmountChanged;
     
     [SerializeField] private GameOptionsSO gameOptionsSO;
-    [SerializeField] private MonitorSO monitorSO;
 
     private int _totalAmount;
     public int TotalAmount
@@ -19,14 +18,30 @@ public class Payout : MonoBehaviour
             onTotalAmountChanged.Invoke(_totalAmount);
         }
     }
+    
+    private int _bet;
+    // ReSharper disable once ConvertToAutoProperty
+    public int Bet
+    {
+        get { return _bet; }
+        
+        private set
+        {
+            _bet = value;
+        }
+    }
 
     public void PlayerDepositStringToInt(string depositAmountString)
     {
-        if (int.TryParse(depositAmountString, out int deposit))
-            TotalAmount += deposit;
+        TotalAmount += gameOptionsSO.StringToInt(depositAmountString);
+    }
+    
+    public void PlayerBetAmountStringToInt(string betAmountString)
+    {
+        Bet = gameOptionsSO.StringToInt(betAmountString);
     }
 
-    public void ResultPayout(GameOptionsSO.Fruits[] fruitNames)
+    public void Payout(GameOptionsSO.Fruits[] fruitNames)
     {
         var isWin = true;
 
@@ -45,7 +60,7 @@ public class Payout : MonoBehaviour
         }
         else
         {
-            TotalAmount -= monitorSO.BetAmount;
+            TotalAmount -= Bet;
             // TODO on lose action
             if (TotalAmount <= 0) TotalAmount = 0;
         }
@@ -55,6 +70,6 @@ public class Payout : MonoBehaviour
     {
         int multiplier = gameOptionsSO.GetMultiplier(fruitName);
 
-        TotalAmount += monitorSO.BetAmount * multiplier;
+        TotalAmount += Bet * multiplier;
     }
 }

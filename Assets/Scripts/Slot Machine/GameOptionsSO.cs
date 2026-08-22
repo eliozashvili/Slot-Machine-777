@@ -51,4 +51,9 @@ public class GameOptionsSO : ScriptableObject
     public float SpinDuration;
     public float StartSlotSpinSpeed;
     public float EndSlotSpinSpeed;
+
+    public int StringToInt(string text)
+    {
+        return int.TryParse(text, out int result) ? result : 0;
+    }
 }
