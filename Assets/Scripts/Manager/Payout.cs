@@ -8,11 +8,11 @@ public class Payment : MonoBehaviour
     [SerializeField] private GameOptionsSO gameOptionsSO;
 
     private int _totalAmount;
-    public int TotalAmount
+    private int TotalAmount
     {
         get { return _totalAmount; }
         
-        private set
+        set
         {
             _totalAmount = value;
             onTotalAmountChanged.Invoke(_totalAmount);
@@ -21,11 +21,11 @@ public class Payment : MonoBehaviour
     
     private int _bet;
     // ReSharper disable once ConvertToAutoProperty
-    public int Bet
+    private int Bet
     {
         get { return _bet; }
         
-        private set
+        set
         {
             _bet = value;
         }

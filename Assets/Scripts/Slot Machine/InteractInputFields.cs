@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using TMPro;
 using UnityEngine.Events;
+using TMPro;
 
 public class InteractInputFields : MonoBehaviour, IInteractable
 {
@@ -10,24 +10,30 @@ public class InteractInputFields : MonoBehaviour, IInteractable
     
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private InputActionReference submitButton;
+    [SerializeField] private InputActionReference cancelButton;
 
-    private void Start()
+    private void OnEnable()
     {
-        if (!inputField) return;
+        submitButton.action.Enable();
+        cancelButton.action.Enable();
         
-        inputField.onSubmit.AddListener(OnSubmitEnterPress);
+        submitButton.action.performed += OnSubmitButtonPressed;
+        cancelButton.action.performed += OnCancelButtonPressed;
+    }
+    
+    private void OnDisable()
+    {
+        submitButton.action.Disable();
+        cancelButton.action.Disable();
+        
+        submitButton.action.performed -= OnSubmitButtonPressed;
+        cancelButton.action.performed -= OnCancelButtonPressed;
     }
 
     public void Interact()
     {
         InputFieldInteractable();
-    }
-
-    private void OnSubmitEnterPress(string input)
-    {
-        onPlayerInput.Invoke(input);
-        
-        InputFieldNotInteractable();
     }
 
     private void InputFieldInteractable()
@@ -42,5 +48,19 @@ public class InteractInputFields : MonoBehaviour, IInteractable
         EventSystem.current.SetSelectedGameObject(null);
 
         playerInput.ActivateInput();
+    }
+
+    private void OnSubmitButtonPressed(InputAction.CallbackContext context)
+    {
+        onPlayerInput.Invoke(inputField.text);
+        
+        InputFieldNotInteractable();
+    }
+    
+    private void OnCancelButtonPressed(InputAction.CallbackContext context)
+    {
+        onPlayerInput.Invoke(string.Empty);
+        
+        InputFieldNotInteractable();
     }
 }

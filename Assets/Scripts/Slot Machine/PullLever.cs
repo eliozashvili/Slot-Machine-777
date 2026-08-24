@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PullLever : MonoBehaviour
+public class PullLever : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameOptionsSO gameOptionsSO;
     [SerializeField] private MonitorInformation monitorInformation;
-
+    [SerializeField] private InputActionReference interactButton;
+    
     private Animator _animator;
 
     private float _timeSinceLastPull;
@@ -25,8 +27,8 @@ public class PullLever : MonoBehaviour
     {
         _timeSinceLastPull += Time.deltaTime;
     }
-
-    private void OnMouseDown()
+    
+    public void Interact()
     {
         HandleSpinStart();
     }

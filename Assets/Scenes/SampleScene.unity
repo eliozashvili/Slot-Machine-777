@@ -434,6 +434,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329398448}
   m_CullTransparentMesh: 1
+--- !u!1 &384900727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1956984566977023732, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+  m_PrefabInstance: {fileID: 1807735555740024186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &384900731
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384900727}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,6 +1742,8 @@ MonoBehaviour:
         m_CallState: 2
   inputField: {fileID: 1190037482}
   playerInput: {fileID: 2549926917513031345}
+  submitButton: {fileID: 392368643174621059, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  cancelButton: {fileID: 7727032971491509709, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!114 &1190037482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1811,7 +1839,7 @@ MonoBehaviour:
   m_OnFocusSelectAll: 0
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0
-  m_RestoreOriginalTextOnEscape: 1
+  m_RestoreOriginalTextOnEscape: 0
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
   isAlert: 0
@@ -2324,7 +2352,7 @@ MonoBehaviour:
   m_OnFocusSelectAll: 0
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0
-  m_RestoreOriginalTextOnEscape: 1
+  m_RestoreOriginalTextOnEscape: 0
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
   isAlert: 0
@@ -2397,6 +2425,8 @@ MonoBehaviour:
         m_CallState: 2
   inputField: {fileID: 2071812335}
   playerInput: {fileID: 2549926917513031345}
+  submitButton: {fileID: 392368643174621059, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  cancelButton: {fileID: 7727032971491509709, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!65 &2071812339
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2522,6 +2552,10 @@ PrefabInstance:
       propertyPath: gameOptionsSO
       value: 
       objectReference: {fileID: 11400000, guid: 695af02de9caf6e45a0e1b728d087963, type: 2}
+    - target: {fileID: 2289467658819952524, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+      propertyPath: interactButton
+      value: 
+      objectReference: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 2289467658819952524, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: monitorInformation
       value: 
@@ -2824,6 +2858,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1888330485252518163, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1807735555740024188}
+    - targetCorrespondingSourceObject: {fileID: 1956984566977023732, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 384900731}
   m_SourcePrefab: {fileID: 100100000, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
 --- !u!4 &1807735555740024187 stripped
 Transform:
@@ -2950,6 +2987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactor
   interactRange: 5
+  interactButton: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!114 &2549926917513031345 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1548048505802703619, guid: 98f9e98368fc61f4aba5852f2a622417, type: 3}
