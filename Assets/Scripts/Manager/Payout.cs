@@ -3,7 +3,8 @@ using UnityEngine.Events;
 
 public class Payment : MonoBehaviour
 {
-    [SerializeField] private UnityEvent<int> onTotalAmountChanged;
+    [SerializeField] private UnityEvent<int> onTotalAmountChange;
+    [SerializeField] private UnityEvent<int> onBetChange;
     
     [SerializeField] private GameOptionsSO gameOptionsSO;
 
@@ -15,7 +16,7 @@ public class Payment : MonoBehaviour
         set
         {
             _totalAmount = value;
-            onTotalAmountChanged.Invoke(_totalAmount);
+            onTotalAmountChange.Invoke(_totalAmount);
         }
     }
     
@@ -28,6 +29,7 @@ public class Payment : MonoBehaviour
         set
         {
             _bet = value;
+            onBetChange.Invoke(_bet);
         }
     }
 

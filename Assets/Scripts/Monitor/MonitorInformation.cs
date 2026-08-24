@@ -11,11 +11,17 @@ public class MonitorInformation : MonoBehaviour
     [SerializeField] private GameOptionsSO gameOptionsSO;
     [SerializeField] private MonitorSO monitorSO;
     [SerializeField] private TMP_Text totalAmountText;
+    [SerializeField] private TMP_Text betAmountText;
     [SerializeField] private Image[] reelSlotFruits;
 
     public void UpdateTotalAmountText(int amount)
     {
-        totalAmountText.text = $"${amount}";
+        totalAmountText.text = $"TOTAL: ${amount}";
+    }
+    
+    public void UpdateBetText(int amount)
+    {
+        betAmountText.text = $"BET: ${amount}";
     }
 
     public void SpinReels()

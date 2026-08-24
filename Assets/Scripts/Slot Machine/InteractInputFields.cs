@@ -52,14 +52,19 @@ public class InteractInputFields : MonoBehaviour, IInteractable
 
     private void OnSubmitButtonPressed(InputAction.CallbackContext context)
     {
+        if (!inputField.isFocused) return;
+        
         onPlayerInput.Invoke(inputField.text);
+        inputField.text = "";
         
         InputFieldNotInteractable();
     }
     
     private void OnCancelButtonPressed(InputAction.CallbackContext context)
     {
-        onPlayerInput.Invoke(string.Empty);
+        if (!inputField.isFocused) return;
+        
+        inputField.text = "";
         
         InputFieldNotInteractable();
     }
