@@ -7,7 +7,7 @@ using TMPro;
 public class InteractInputFields : MonoBehaviour, IInteractable
 {
     [SerializeField] private UnityEvent<string> onPlayerInput;
-    
+
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private InputActionReference submitButton;

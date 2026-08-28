@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -21,7 +22,7 @@ public class MonitorInformation : MonoBehaviour
     
     public void UpdateBetText(int amount)
     {
-        betAmountText.text = $"BET: ${amount}";
+        betAmountText.text = $"TOTAL: ${amount}";
     }
 
     public void SpinReels()

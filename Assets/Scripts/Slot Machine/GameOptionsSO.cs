@@ -3,9 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameOptions", menuName = "Scriptable Objects/GameOptions")]
 public class GameOptionsSO : ScriptableObject
 {
-    public int TotalAmount { get; set; }
-    public int Bet { get; set; }
-
     public enum Fruits
     {
         Seven,
@@ -54,6 +51,12 @@ public class GameOptionsSO : ScriptableObject
     public float SpinDuration;
     public float StartSlotSpinSpeed;
     public float EndSlotSpinSpeed;
+    
+    [Header("Player Details\n"), Space(1f)]
+    public int MaximumBet;
+    public int MinimumBet;
+    public int TotalAmount { get; set; }
+    public int Bet { get; set; }
 
     public int StringToIntStepByFive(string text)
     {

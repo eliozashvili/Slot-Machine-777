@@ -45,3 +45,5 @@ MonoBehaviour:
   SpinDuration: 2
   StartSlotSpinSpeed: 0.075
   EndSlotSpinSpeed: 0.1
+  MaximumBet: 250
+  MinimumBet: 5

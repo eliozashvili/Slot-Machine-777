@@ -30,7 +30,7 @@ public class PullLever : MonoBehaviour, IInteractable
     
     public void Interact()
     {
-        if (gameOptionsSO.TotalAmount >= gameOptionsSO.Bet && gameOptionsSO.Bet != 0)
+        if (gameOptionsSO.TotalAmount >= gameOptionsSO.Bet && gameOptionsSO.Bet <= gameOptionsSO.MaximumBet && gameOptionsSO.Bet != 0)
             HandleSpinStart();
     }
 

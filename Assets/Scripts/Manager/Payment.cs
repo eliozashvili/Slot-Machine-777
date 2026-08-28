@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,11 @@ public class Payment : MonoBehaviour
     [SerializeField] private UnityEvent<int> onBetChange;
     
     [SerializeField] private GameOptionsSO gameOptionsSO;
+
+    private void Start()
+    {
+        Bet = gameOptionsSO.MinimumBet;
+    }
 
     private int _totalAmount;
     private int TotalAmount
@@ -43,6 +49,11 @@ public class Payment : MonoBehaviour
     public void PlayerBetAmountStringToInt(string betAmountString)
     {
         Bet = gameOptionsSO.StringToIntStepByFive(betAmountString);
+        
+        if (Bet >= gameOptionsSO.MaximumBet)
+            Bet = gameOptionsSO.MaximumBet;
+        else if (Bet <= gameOptionsSO.MinimumBet)
+            Bet = gameOptionsSO.MinimumBet;
     }
 
     public void Payout(GameOptionsSO.Fruits[] fruitNames) 

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68019a57be45c114591da18ca8ac6cfd, type: 3}
   m_Name: MonitorSO
   m_EditorClassIdentifier: Assembly-CSharp::Monitor
-  BetAmount: 100
   DefaultFruitScale: {x: 0.85, y: 0.85}
   FruitScaleWhileSpin: {x: 0.65, y: 0.65}
   DefaultAlpha: 1
