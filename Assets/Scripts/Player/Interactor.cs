@@ -1,16 +1,25 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Interactor : MonoBehaviour
 {
     [SerializeField] private float interactRange;
     [SerializeField] private InputActionReference interactButton;
-    
+    [SerializeField] private TMP_Text pressEText;
+
     private Camera _camera;
-    
+
+    private IInteractable _currentInteractable;
+
     private void Start()
     {
         _camera = Camera.main;
+    }
+
+    private void Update()
+    {
+        CheckIfInteractable();
     }
 
     private void OnEnable()
@@ -18,7 +27,7 @@ public class Interactor : MonoBehaviour
         interactButton.action.Enable();
         interactButton.action.performed += PressInteractButtonHandler;
     }
-    
+
     private void OnDisable()
     {
         interactButton.action.Disable();
@@ -27,13 +36,24 @@ public class Interactor : MonoBehaviour
 
     private void PressInteractButtonHandler(InputAction.CallbackContext context)
     {
+        if (_currentInteractable != null)
+            _currentInteractable.Interact();
+    }
+
+    private void CheckIfInteractable()
+    {
         var ray = new Ray(_camera.transform.position, _camera.transform.forward);
 
-        if (!Physics.Raycast(ray, out RaycastHit hit, interactRange)) return;
-        
-        if (hit.collider.gameObject.TryGetComponent(out IInteractable interactable))
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange) &&
+            hit.collider.gameObject.TryGetComponent(out IInteractable interactable))
         {
-            interactable.Interact();
+            _currentInteractable = interactable;
+            pressEText.gameObject.SetActive(true);
+        }
+        else
+        {
+            _currentInteractable = null;
+            pressEText.gameObject.SetActive(false);
         }
     }
 }
