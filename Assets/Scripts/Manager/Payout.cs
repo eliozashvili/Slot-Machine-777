@@ -35,15 +35,15 @@ public class Payment : MonoBehaviour
 
     public void PlayerDepositStringToInt(string depositAmountString)
     {
-        TotalAmount += gameOptionsSO.StringToInt(depositAmountString);
+        TotalAmount += gameOptionsSO.StringToIntStepByFive(depositAmountString);
     }
     
     public void PlayerBetAmountStringToInt(string betAmountString)
     {
-        Bet = gameOptionsSO.StringToInt(betAmountString);
+        Bet = gameOptionsSO.StringToIntStepByFive(betAmountString);
     }
 
-    public void Payout(GameOptionsSO.Fruits[] fruitNames)
+    public void Payout(GameOptionsSO.Fruits[] fruitNames) 
     {
         var isWin = true;
 
