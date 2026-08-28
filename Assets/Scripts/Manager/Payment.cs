@@ -16,6 +16,7 @@ public class Payment : MonoBehaviour
         set
         {
             _totalAmount = value;
+            gameOptionsSO.TotalAmount = _totalAmount;
             onTotalAmountChange.Invoke(_totalAmount);
         }
     }
@@ -29,6 +30,7 @@ public class Payment : MonoBehaviour
         set
         {
             _bet = value;
+            gameOptionsSO.Bet = _bet;
             onBetChange.Invoke(_bet);
         }
     }
@@ -63,7 +65,7 @@ public class Payment : MonoBehaviour
         else
         {
             TotalAmount -= Bet;
-            // TODO on lose action
+            
             if (TotalAmount <= 0) TotalAmount = 0;
         }
     }
