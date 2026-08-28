@@ -3,6 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameOptions", menuName = "Scriptable Objects/GameOptions")]
 public class GameOptionsSO : ScriptableObject
 {
+    [Header("Player State\n")]
+    public int TotalAmount { get; set; }
+    public int Bet { get; set; }
+
     public enum Fruits
     {
         Seven,
