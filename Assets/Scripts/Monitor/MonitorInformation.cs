@@ -22,6 +22,7 @@ public class MonitorInformation : MonoBehaviour
     public void UpdateBetText(int amount)
     {
         betAmountText.text = $"TOTAL: ${amount}";
+        Debug.Log(gameOptionsSO.PlayerCashAmount);
     }
 
     public void SpinReels()

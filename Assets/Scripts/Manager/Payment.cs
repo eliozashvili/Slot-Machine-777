@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class Payment : MonoBehaviour
 {
@@ -18,7 +18,6 @@ public class Payment : MonoBehaviour
     private int TotalAmount
     {
         get { return _totalAmount; }
-        
         set
         {
             _totalAmount = value;
@@ -32,7 +31,6 @@ public class Payment : MonoBehaviour
     private int Bet
     {
         get { return _bet; }
-        
         set
         {
             _bet = value;
@@ -48,12 +46,9 @@ public class Payment : MonoBehaviour
     
     public void PlayerBetAmountStringToInt(string betAmountString)
     {
-        Bet = gameOptionsSO.StringToIntStepByFive(betAmountString);
+        int bet = gameOptionsSO.StringToIntStepByFive(betAmountString);
         
-        if (Bet >= gameOptionsSO.MaximumBet)
-            Bet = gameOptionsSO.MaximumBet;
-        else if (Bet <= gameOptionsSO.MinimumBet)
-            Bet = gameOptionsSO.MinimumBet;
+        Bet = Math.Clamp(bet, gameOptionsSO.MinimumBet, gameOptionsSO.MaximumBet);
     }
 
     public void Payout(GameOptionsSO.Fruits[] fruitNames) 
