@@ -37,6 +37,11 @@ public class PlayerCash : MonoBehaviour
         onPlayerCashAmountChange.Invoke(depositAmount);
     }
 
+    public void TotalToCash(int amount)
+    {
+        PlayerCashAmount += amount;
+    }
+
     private void UpdatePlayerCash(int amount)
     {
         playerCashText.text = $"CASH: ${amount:N0}";

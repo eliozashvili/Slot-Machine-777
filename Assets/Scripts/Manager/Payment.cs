@@ -11,31 +11,28 @@ public class Payment : MonoBehaviour
 
     private void Start()
     {
+        gameOptionsSO.ResetTotalAmount();
         Bet = gameOptionsSO.MinimumBet;
     }
-
-    private int _totalAmount;
+    
     private int TotalAmount
     {
-        get { return _totalAmount; }
+        get { return gameOptionsSO.TotalAmount; }
         set
         {
-            _totalAmount = value;
-            gameOptionsSO.TotalAmount = _totalAmount;
-            onTotalAmountChange.Invoke(_totalAmount);
+            gameOptionsSO.TotalAmount = value;
+            onTotalAmountChange.Invoke(gameOptionsSO.TotalAmount);
         }
     }
     
-    private int _bet;
     // ReSharper disable once ConvertToAutoProperty
     private int Bet
     {
-        get { return _bet; }
+        get { return gameOptionsSO.Bet; }
         set
         {
-            _bet = value;
-            gameOptionsSO.Bet = _bet;
-            onBetChange.Invoke(_bet);
+            gameOptionsSO.Bet = value;
+            onBetChange.Invoke(gameOptionsSO.Bet);
         }
     }
 
@@ -71,14 +68,6 @@ public class Payment : MonoBehaviour
         else
         {
             TotalAmount -= Bet;
-            Debug.Log(gameOptionsSO.PlayerCashAmount);
-
-            
-            // if (TotalAmount <= 0 && gameOptionsSO.PlayerCashAmount <= 0)
-            // {
-            //     TotalAmount = 0;
-            //     Debug.Log("GAME OVER");
-            // };
         }
     }
 

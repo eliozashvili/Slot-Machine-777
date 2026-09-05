@@ -58,6 +58,11 @@ public class GameOptionsSO : ScriptableObject
     public int PlayerCashAmount { get; set; }
     public int TotalAmount { get; set; }
     public int Bet { get; set; }
+    
+    public void ResetTotalAmount()
+    {
+        TotalAmount = 0;
+    }
 
     public int StringToIntStepByFive(string text)
     {
