@@ -5,6 +5,7 @@ using TMPro;
 public class Interactor : MonoBehaviour
 {
     [SerializeField] private float interactRange;
+    [SerializeField] private GameOptionsSO gameOptionsSO;
     [SerializeField] private InputActionReference interactButton;
     [SerializeField] private TMP_Text pressEText;
 
@@ -36,7 +37,7 @@ public class Interactor : MonoBehaviour
 
     private void PressInteractButtonHandler(InputAction.CallbackContext context)
     {
-        if (_currentInteractable != null)
+        if (_currentInteractable != null && !gameOptionsSO.IsSpinning)
             _currentInteractable.Interact();
     }
 

@@ -31,6 +31,7 @@ public class MonitorInformation : MonoBehaviour
 
     private IEnumerator StartSpin()
     {
+        gameOptionsSO.IsSpinning = true;
         var elapsedTime = 0f;
 
         monitorSO.ChangeFruitsVisuals(monitorSO.FruitScaleWhileSpin, monitorSO.FruitAlphaWhileSpin, reelSlotFruits);
@@ -53,6 +54,7 @@ public class MonitorInformation : MonoBehaviour
 
         Spin();
         monitorSO.ChangeFruitsVisuals(monitorSO.DefaultFruitScale, monitorSO.DefaultAlpha, reelSlotFruits);
+        gameOptionsSO.IsSpinning = false;
     }
 
     private void Spin()

@@ -51,6 +51,7 @@ public class GameOptionsSO : ScriptableObject
     public float SpinDuration;
     public float StartSlotSpinSpeed;
     public float EndSlotSpinSpeed;
+    public bool IsSpinning;
 
     [Header("Player Details\n"), Space(1f)]
     public int MaximumBet;
