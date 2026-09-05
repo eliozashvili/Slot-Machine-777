@@ -39,12 +39,12 @@ public class Payment : MonoBehaviour
         }
     }
 
-    public void PlayerDepositStringToInt(string depositAmountString)
+    public void PlayerDeposit(int depositToTotal)
     {
-        TotalAmount += gameOptionsSO.StringToIntStepByFive(depositAmountString);
+        TotalAmount += depositToTotal;
     }
     
-    public void PlayerBetAmountStringToInt(string betAmountString)
+    public void PlayerBet(string betAmountString)
     {
         int bet = gameOptionsSO.StringToIntStepByFive(betAmountString);
         
@@ -71,8 +71,14 @@ public class Payment : MonoBehaviour
         else
         {
             TotalAmount -= Bet;
+            Debug.Log(gameOptionsSO.PlayerCashAmount);
+
             
-            if (TotalAmount <= 0) TotalAmount = 0;
+            // if (TotalAmount <= 0 && gameOptionsSO.PlayerCashAmount <= 0)
+            // {
+            //     TotalAmount = 0;
+            //     Debug.Log("GAME OVER");
+            // };
         }
     }
 

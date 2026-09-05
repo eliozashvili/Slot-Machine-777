@@ -47,4 +47,3 @@ MonoBehaviour:
   EndSlotSpinSpeed: 0.1
   MaximumBet: 250
   MinimumBet: 5
-  <PlayerCashAmount>k__BackingField: 100

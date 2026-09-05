@@ -255,8 +255,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 566297676}
-  - component: {fileID: 566297678}
   - component: {fileID: 566297677}
+  - component: {fileID: 566297678}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -291,6 +291,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e870307c09219a4390d9c934f51144b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCash
+  onPlayerCashAmountChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 566297678}
+        m_TargetAssemblyTypeName: Payment, Assembly-CSharp
+        m_MethodName: PlayerDeposit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   playerCashText: {fileID: 862503944}
   gameOptionsSO: {fileID: 11400000, guid: 695af02de9caf6e45a0e1b728d087963, type: 2}
   playerCash: 100
@@ -1675,16 +1690,20 @@ PrefabInstance:
       objectReference: {fileID: 2549926917513031345}
     - target: {fileID: 919456887641623189, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919456887641623189, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
+      propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919456887641623189, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 566297678}
+      objectReference: {fileID: 566297677}
     - target: {fileID: 919456887641623189, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 566297677}
+      objectReference: {fileID: 566297675}
     - target: {fileID: 919456887641623189, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -1699,11 +1718,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919456887641623189, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayerDepositStringToInt
+      value: HandlePlayerCash
       objectReference: {fileID: 0}
     - target: {fileID: 919456887641623189, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: HandlePlayerCash
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 919456887641623189, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -1711,7 +1730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919456887641623189, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Payment, Assembly-CSharp
+      value: PlayerCash, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 919456887641623189, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1851,7 +1870,7 @@ PrefabInstance:
       objectReference: {fileID: 566297678}
     - target: {fileID: 9201822778719547409, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayerBetAmountStringToInt
+      value: PlayerBet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

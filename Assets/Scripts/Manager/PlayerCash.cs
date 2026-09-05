@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class PlayerCash : MonoBehaviour
 {
+    [SerializeField] private UnityEvent<int> onPlayerCashAmountChange;
+    
     [SerializeField] private TMP_Text playerCashText;
     [SerializeField] private GameOptionsSO gameOptionsSO;
     
@@ -25,7 +28,13 @@ public class PlayerCash : MonoBehaviour
 
     public void HandlePlayerCash(string depositAmountString)
     {
-        PlayerCashAmount -= gameOptionsSO.StringToIntStepByFive(depositAmountString);
+        int depositAmount = gameOptionsSO.StringToIntStepByFive(depositAmountString);
+
+        if (depositAmount > PlayerCashAmount) return;
+        
+        PlayerCashAmount -= depositAmount;
+        
+        onPlayerCashAmountChange.Invoke(depositAmount);
     }
 
     private void UpdatePlayerCash(int amount)
