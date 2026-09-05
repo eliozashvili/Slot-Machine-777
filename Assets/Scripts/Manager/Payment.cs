@@ -9,6 +9,8 @@ public class Payment : MonoBehaviour
     
     [SerializeField] private GameOptionsSO gameOptionsSO;
 
+    public static event Action OnGameOver;
+
     private void Start()
     {
         gameOptionsSO.ResetTotalAmount();
@@ -68,6 +70,9 @@ public class Payment : MonoBehaviour
         else
         {
             TotalAmount -= Bet;
+            
+            if (TotalAmount <= 0 && gameOptionsSO.PlayerCashAmount <= 0 && OnGameOver != null)
+                OnGameOver.Invoke();
         }
     }
 
