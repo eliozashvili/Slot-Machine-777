@@ -9,22 +9,54 @@ public class GameOver : MonoBehaviour
     [SerializeField] private StarterAssetsInputs starterAssetsInputs;
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private GameObject gameOver;
+    [SerializeField] private InputActionReference openMenuButton;
 
     private void OnEnable()
     {
-        Payment.OnGameOver += GameOverPanel;
+        Payment.OnGameOver += HandleGameOver;
+        openMenuButton.action.Enable();
+
+        openMenuButton.action.performed += OnOpenMenuButtonPressed;
     }
 
     private void OnDisable()
     {
-        Payment.OnGameOver -= GameOverPanel;
+        Payment.OnGameOver -= HandleGameOver;
+        openMenuButton.action.Disable();
+        
+        openMenuButton.action.performed -= OnOpenMenuButtonPressed;
+    }
+    
+    private void HandleGameOver()
+    {
+        GameOverPanel(true);
     }
 
-    private void GameOverPanel()
+    private void OnOpenMenuButtonPressed(InputAction.CallbackContext context)
     {
-        starterAssetsInputs.SetCursorState(false);
-        playerInput.gameObject.SetActive(false);
-        gameOver.SetActive(true);
+        ToggleGameOverPanel();
+    }
+
+    private void ToggleGameOverPanel()
+    {
+        bool isCurrentlyActive = gameOver.activeSelf;
+        GameOverPanel(!isCurrentlyActive);
+    }
+
+    private void GameOverPanel(bool show)
+    {
+        gameOver.SetActive(show);
+        
+        if (show)
+        {
+            starterAssetsInputs.SetCursorState(false);
+            playerInput.gameObject.SetActive(false);
+        }
+        else
+        {
+            starterAssetsInputs.SetCursorState(true);
+            playerInput.gameObject.SetActive(true);
+        }
     }
 
     public void Restart()
