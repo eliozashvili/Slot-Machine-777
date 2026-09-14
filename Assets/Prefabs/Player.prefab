@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b32d814accb6f8498797835b5485252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactor
-  interactRange: 5
+  interactRange: 2
   gameOptionsSO: {fileID: 11400000, guid: 695af02de9caf6e45a0e1b728d087963, type: 2}
   interactButton: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   pressEText: {fileID: 0}

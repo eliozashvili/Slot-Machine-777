@@ -1344,108 +1344,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c00370b8f1d6c8e4ab9576ab0bf9bb76, type: 3}
   m_PrefabInstance: {fileID: 526102580}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &558513796
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 919456887641623189, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: playerInput
-      value: 
-      objectReference: {fileID: 2549926917513031345}
-    - target: {fileID: 919456887641623189, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 566297677}
-    - target: {fileID: 959519779528869568, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1034746977}
-    - target: {fileID: 4332633446529572921, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.473
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332633446529572921, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332633446529572921, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.082
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332633446529572921, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332633446529572921, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332633446529572921, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332633446529572921, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332633446529572921, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332633446529572921, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332633446529572921, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5894778228307033377, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_Name
-      value: Slot Machine (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6421287230649781059, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1034746977}
-    - target: {fileID: 6883757344658624206, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: onSpinCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 566297678}
-    - target: {fileID: 7258659785275103994, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: onCashoutButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 566297677}
-    - target: {fileID: 7691933635559176711, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1034746977}
-    - target: {fileID: 9201822778719547409, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: playerInput
-      value: 
-      objectReference: {fileID: 2549926917513031345}
-    - target: {fileID: 9201822778719547409, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      propertyPath: onPlayerInput.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 566297678}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 14564608283439969, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2719205178562015814, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2206224771649201301, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-  m_SourcePrefab: {fileID: 100100000, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
 --- !u!1 &566297675
 GameObject:
   m_ObjectHideFlags: 0
@@ -8713,13 +8611,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 14564608283439969, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 2719205178562015814, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2206224771649201301, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 51bae14cbd7941241914b9d80d5f0181, type: 3}
@@ -8825,14 +8717,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1967404619}
     m_Modifications:
-    - target: {fileID: 1421818472353878642, guid: 887998f5c3339b94684cce72b117a156, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.4999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 1421818472353878642, guid: 887998f5c3339b94684cce72b117a156, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.4999999
-      objectReference: {fileID: 0}
     - target: {fileID: 1421818472353878642, guid: 887998f5c3339b94684cce72b117a156, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.0440102
@@ -8982,7 +8866,6 @@ SceneRoots:
   - {fileID: 2549926917513031340}
   - {fileID: 1967404619}
   - {fileID: 1807735555740024186}
-  - {fileID: 558513796}
   - {fileID: 718331458}
   - {fileID: 1062172973}
   - {fileID: 646821186}
