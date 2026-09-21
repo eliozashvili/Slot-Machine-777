@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GameOptions", menuName = "Scriptable Objects/GameOptions")]
+[CreateAssetMenu(fileName = "Game Options", menuName = "Scriptable Objects/Game Options")]
 public class GameOptionsSO : ScriptableObject
 {
     public enum Fruits

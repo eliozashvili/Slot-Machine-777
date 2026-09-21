@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40d319b5dbce67409349689baf7ff29, type: 3}
+  m_Name: BartenderGirlSO
+  m_EditorClassIdentifier: Assembly-CSharp::BartenderGirlSO
+  BartenderGirlDialogue:
+  - 'Heya! '
+  - What can I getcha?
+  - Good luck out there!
+  - 'One day I will open my own bar. '
+  - Did you win something?
+  - I always wondered, why this bar only has Soju? We are not even in Korea...
+  - Such a slow day.. *yawns*
+  - I just realised that this room has no doors, so.. How do we get out? *confused*
+  - I like classical music, it's calming.
