@@ -1,7 +1,14 @@
 using UnityEngine;
+using UnityEngine.Video;
 
 public class TV : MonoBehaviour, IInteractable
 {
+    [SerializeField] private GameObject tvBlackScreenMaterial;
+    [SerializeField] private VideoPlayer videoPlayer;
+
+
+    private bool _isOn = true;
+    
     public void Interact()
     {
         ToggleTV();
@@ -9,6 +16,17 @@ public class TV : MonoBehaviour, IInteractable
 
     private void ToggleTV()
     {
-        Debug.Log("tv is toggled");
+        _isOn = !_isOn;
+        
+        if (_isOn)
+        {
+            tvBlackScreenMaterial.SetActive(false);
+            videoPlayer.Play();
+        }
+        else
+        {
+            videoPlayer.Pause();
+            tvBlackScreenMaterial.SetActive(true);
+        }
     }
 }
