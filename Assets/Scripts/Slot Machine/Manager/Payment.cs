@@ -8,6 +8,8 @@ public class Payment : MonoBehaviour
     [SerializeField] private UnityEvent<int> onBetChange;
     
     [SerializeField] private GameOptionsSO gameOptionsSO;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
 
     public static event Action OnGameOver;
 
@@ -66,6 +68,7 @@ public class Payment : MonoBehaviour
         if (isWin)
         {
             CalculatePayout(fruitNames[0]);
+            audioSource.PlayOneShot(audioClip);
         }
         else
         {

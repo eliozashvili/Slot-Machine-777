@@ -5,8 +5,7 @@ public class TV : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject tvBlackScreenMaterial;
     [SerializeField] private VideoPlayer videoPlayer;
-
-
+    
     private bool _isOn = true;
     
     public void Interact()
@@ -20,8 +19,8 @@ public class TV : MonoBehaviour, IInteractable
         
         if (_isOn)
         {
-            tvBlackScreenMaterial.SetActive(false);
             videoPlayer.Play();
+            tvBlackScreenMaterial.SetActive(false);
         }
         else
         {

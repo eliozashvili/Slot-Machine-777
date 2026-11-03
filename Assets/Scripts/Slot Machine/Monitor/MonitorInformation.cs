@@ -7,18 +7,20 @@ using TMPro;
 public class MonitorInformation : MonoBehaviour
 {
     [SerializeField] private UnityEvent<GameOptionsSO.Fruits[]> onSpinCompleted;
-    
+
     [SerializeField] private GameOptionsSO gameOptionsSO;
     [SerializeField] private MonitorSO monitorSO;
     [SerializeField] private TMP_Text totalAmountText;
     [SerializeField] private TMP_Text betAmountText;
     [SerializeField] private Image[] reelSlotFruits;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
 
     public void UpdateTotalAmountText(int amount)
     {
         totalAmountText.text = $"TOTAL: ${amount}";
     }
-    
+
     public void UpdateBetText(int amount)
     {
         betAmountText.text = $"TOTAL: ${amount}";
@@ -31,6 +33,7 @@ public class MonitorInformation : MonoBehaviour
 
     private IEnumerator StartSpin()
     {
+        audioSource.PlayOneShot(audioClip);
         gameOptionsSO.IsSpinning = true;
         var elapsedTime = 0f;
 
@@ -38,8 +41,9 @@ public class MonitorInformation : MonoBehaviour
 
         while (elapsedTime < gameOptionsSO.SpinDuration)
         {
-            float progress = elapsedTime / gameOptionsSO.SpinDuration;
-            float reelSpinSpeedBeforeResult = Mathf.Lerp(gameOptionsSO.StartSlotSpinSpeed, gameOptionsSO.EndSlotSpinSpeed, progress);
+            float progress = elapsedTime/gameOptionsSO.SpinDuration;
+            float reelSpinSpeedBeforeResult =
+                Mathf.Lerp(gameOptionsSO.StartSlotSpinSpeed, gameOptionsSO.EndSlotSpinSpeed, progress);
 
             // ReSharper disable once ForCanBeConvertedToForeach
             for (var i = 0; i < reelSlotFruits.Length; i++)
